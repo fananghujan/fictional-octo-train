@@ -8,11 +8,19 @@ jobs:
     steps:
       - checkout
       - run:  
-          command: |
+          command:
             sudo sh -c 'echo deb https://apt.buildkite.com/buildkite-agent stable main > /etc/apt/sources.list.d/buildkite-agent.list'
+      - run:  
+          command:
             sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 32A37959C2FA5C3C99EFBC32A79206696452D198
+      - run:  
+          command:
             sudo apt-get update && sudo apt-get install -y buildkite-agent
+      - run:  
+          command:
             sudo sed -i "s/xxx/a16a145c88deddf524006982f85743f60e4e8663ef34a4bde2/g" /etc/buildkite-agent/buildkite-agent.cfg
+      - run:  
+          command:
             sudo service buildkite-agent start
             
             
