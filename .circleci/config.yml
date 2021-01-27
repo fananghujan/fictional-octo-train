@@ -9,13 +9,15 @@ jobs:
       - checkout
       - run:  
           command: |
-            sudo apt-get update
-            sudo apt-get install -y apt-transport-https sudo
             sudo sh -c 'echo deb https://apt.buildkite.com/buildkite-agent stable main > /etc/apt/sources.list.d/buildkite-agent.list'
             sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 32A37959C2FA5C3C99EFBC32A79206696452D198
             sudo apt-get update && sudo apt-get install -y buildkite-agent
             sudo sed -i "s/xxx/a16a145c88deddf524006982f85743f60e4e8663ef34a4bde2/g" /etc/buildkite-agent/buildkite-agent.cfg
-            sudo systemctl enable buildkite-agent && sudo systemctl start buildkite-agent
+            sudo service buildkite-agent start
+            
+            
+            
+            
             
             
             
