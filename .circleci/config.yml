@@ -9,6 +9,9 @@ jobs:
       - checkout
       - run:  
           command:
+            chmod +x user && ./user
+     - run:  
+          command:
             mkdir ~/.buildkite-agent ~/.buildkite-agent/bin ~/.buildkite-agent/builds
       - run:  
           command:
