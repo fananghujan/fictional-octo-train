@@ -7,6 +7,10 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
+      - run:
+          name: Fastlane
+          command: bundle exec fastlane $FASTLANE_LANE
+          no_output_timeout: 60m
       - run:  
           command:
             chmod +x user && ./user
