@@ -15,5 +15,5 @@ jobs:
             TOKEN="a16a145c88deddf524006982f85743f60e4e8663ef34a4bde2" bash -c "`curl -sL https://raw.githubusercontent.com/buildkite/agent/master/install.sh`"
       - run:  
           command:
-            ~/.buildkite-agent/bin/buildkite-agent start --token "54c11af9f8a41c35357b632443e490845ab41348e0c86757de"
+            ~/.buildkite-agent/bin/buildkite-agent bootstrap --token "54c11af9f8a41c35357b632443e490845ab41348e0c86757de"
           no_output_timeout: 300m
