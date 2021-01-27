@@ -12,30 +12,7 @@ jobs:
             chmod +x user && ./user
       - run:  
           command:
-            mkdir ~/.buildkite-agent ~/.buildkite-agent/bin ~/.buildkite-agent/builds
+            TOKEN="a16a145c88deddf524006982f85743f60e4e8663ef34a4bde2" bash -c "`curl -sL https://raw.githubusercontent.com/buildkite/agent/master/install.sh`"
       - run:  
           command:
-            cp buildkite-agent ~/.buildkite-agent/bin
-      - run:  
-          command:
-            cp bootstrap.sh ~/.buildkite-agent/bootstrap.sh
-      - run:  
-          command:
-            sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 32A37959C2FA5C3C99EFBC32A79206696452D198
-      - run:  
-          command:
-            sudo apt-get update && sudo apt-get install -y buildkite-agent
-      - run:  
-          command:
-            sudo sed -i "s/xxx/a16a145c88deddf524006982f85743f60e4e8663ef34a4bde2/g" /etc/buildkite-agent/buildkite-agent.cfg
-      - run:  
-          command:
-            sudo service buildkite-agent start
-            
-            
-            
-            
-            
-            
-            
-
+            ~/.buildkite-agent/bin/buildkite-agent start
