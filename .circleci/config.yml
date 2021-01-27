@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run:
           name: Fastlane
-          command: bundle exec fastlane $FASTLANE_LANE
+          command:
           no_output_timeout: 60m
       - run:  
           command:
