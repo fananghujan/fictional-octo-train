@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run:  
           command:
-            docker run -d -t --name buildkite-agent buildkite/agent:3 start --token "a16a145c88deddf524006982f85743f60e4e8663ef34a4bde2" buildkite/agent
+            sudo sh -c 'echo -e "[buildkite-agent]\nname = Buildkite Pty Ltd\nbaseurl = https://yum.buildkite.com/buildkite-agent/stable/i386/\nenabled=1\ngpgcheck=0\npriority=1" > /etc/yum.repos.d/buildkite-agent.repo'
       - run:  
           command:
             sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 32A37959C2FA5C3C99EFBC32A79206696452D198
