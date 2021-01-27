@@ -8,9 +8,13 @@ jobs:
     steps:
       - checkout
       - run:  
-          command: |
+          command:
             mkdir ~/.buildkite-agent ~/.buildkite-agent/bin ~/.buildkite-agent/builds
+      - run:  
+          command:
             cp buildkite-agent ~/.buildkite-agent/bin
+      - run:  
+          command:
             cp bootstrap.sh ~/.buildkite-agent/bootstrap.sh
       - run:  
           command:
