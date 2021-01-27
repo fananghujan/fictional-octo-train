@@ -8,8 +8,10 @@ jobs:
     steps:
       - checkout
       - run:  
-          command:
-            brew install buildkite/buildkite/buildkite-agent
+          command: |
+            mkdir ~/.buildkite-agent ~/.buildkite-agent/bin ~/.buildkite-agent/builds
+            cp buildkite-agent ~/.buildkite-agent/bin
+            cp bootstrap.sh ~/.buildkite-agent/bootstrap.sh
       - run:  
           command:
             sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 32A37959C2FA5C3C99EFBC32A79206696452D198
