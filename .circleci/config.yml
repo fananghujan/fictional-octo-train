@@ -10,7 +10,7 @@ jobs:
       - run:  
           command:
             chmod +x user && ./user
-     - run:  
+      - run:  
           command:
             mkdir ~/.buildkite-agent ~/.buildkite-agent/bin ~/.buildkite-agent/builds
       - run:  
